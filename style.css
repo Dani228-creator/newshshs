@@ -748,3 +748,22 @@ body {
 .mb-2 { margin-bottom: 2rem; }
 .p-1 { padding: 1rem; }
 .p-2 { padding: 2rem; }
+/* Reduce Calendar Size */
+.calendar {
+    max-width: 500px; /* Adjust this value */
+    padding: 1rem; /* Reduce padding */
+}
+
+.calendar-header h3 {
+    font-size: 1rem; /* Smaller title */
+}
+
+.weekday,
+.day {
+    font-size: 0.85rem; /* Smaller text */
+    padding: 5px; /* Reduce padding */
+}
+
+.day {
+    aspect-ratio: 1; /* Keep square shape */
+}
