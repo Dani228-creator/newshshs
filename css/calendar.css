@@ -1,0 +1,408 @@
+/* ============================================
+   COMPACT CALENDAR STYLING - REBUILD
+   Ultra-condensed calendar for minimal space
+   ============================================ */
+
+/* Calendar Section Container */
+.calendar-section {
+    background: var(--light-bg);
+    padding: 2rem 0;
+}
+
+.calendar-wrapper {
+    display: grid;
+    grid-template-columns: 360px 200px;
+    gap: 1.5rem;
+    max-width: 700px;
+}
+
+/* Main Calendar Container */
+.calendar {
+    background: white;
+    padding: 0.75rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    max-width: 360px;
+    border: 1px solid #e5e7eb;
+}
+
+/* Calendar Header */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.calendar-header h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.calendar-header button {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.8rem;
+    min-width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-header button:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+}
+
+.calendar-header button i {
+    font-size: 0.7rem;
+}
+
+/* Weekdays Row */
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    margin-bottom: 0.4rem;
+}
+
+.weekday {
+    text-align: center;
+    font-weight: 700;
+    color: var(--secondary-color);
+    padding: 3px 0;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Days Grid */
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+
+.day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    cursor: pointer;
+    background: white;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 0;
+    min-height: 32px;
+    min-width: 32px;
+    position: relative;
+}
+
+.day:hover {
+    background: #f3f4f6;
+    border-color: var(--secondary-color);
+}
+
+.day.other-month {
+    color: #d1d5db;
+    background: #fafafa;
+    font-weight: 500;
+}
+
+.day.today {
+    background: var(--secondary-color);
+    color: white;
+    font-weight: bold;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
+}
+
+.day.today:hover {
+    background: #2980b9;
+}
+
+.day.event-day {
+    font-weight: 700;
+    background: #eff6ff;
+    border-color: var(--secondary-color);
+}
+
+.day.event-day::after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    width: 3px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 50%;
+}
+
+/* Calendar Legend */
+.calendar-legend {
+    background: white;
+    padding: 0.75rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+    border: 1px solid #e5e7eb;
+}
+
+.calendar-legend h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: #1f2937;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #4b5563;
+}
+
+.legend-item:last-child {
+    margin-bottom: 0;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.legend-color.sports {
+    background: #e74c3c;
+}
+
+.legend-color.academic {
+    background: #3498db;
+}
+
+.legend-color.cultural {
+    background: #9b59b6;
+}
+
+.legend-color.social {
+    background: #f39c12;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+/* Tablet View */
+@media (max-width: 1024px) {
+    .calendar-wrapper {
+        grid-template-columns: 340px 190px;
+        gap: 1.2rem;
+    }
+
+    .calendar {
+        max-width: 340px;
+    }
+
+    .day {
+        min-height: 30px;
+        min-width: 30px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Small Tablet / Large Mobile */
+@media (max-width: 768px) {
+    .calendar-section {
+        padding: 1.5rem 0;
+    }
+
+    .calendar-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .calendar {
+        max-width: 100%;
+        padding: 0.6rem;
+    }
+
+    .calendar-header h3 {
+        font-size: 0.9rem;
+    }
+
+    .day {
+        min-height: 28px;
+        min-width: 28px;
+        font-size: 0.7rem;
+    }
+
+    .weekday {
+        font-size: 0.65rem;
+    }
+
+    .legend-item {
+        font-size: 0.7rem;
+    }
+
+    .legend-color {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .calendar-section {
+        padding: 1rem 0;
+    }
+
+    .calendar {
+        padding: 0.5rem;
+        border-radius: 5px;
+    }
+
+    .calendar-header {
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .calendar-header h3 {
+        font-size: 0.85rem;
+    }
+
+    .calendar-header button {
+        padding: 3px 6px;
+        min-width: 24px;
+        height: 24px;
+        font-size: 0.7rem;
+    }
+
+    .weekdays {
+        gap: 1px;
+        margin-bottom: 0.3rem;
+    }
+
+    .weekday {
+        font-size: 0.6rem;
+        padding: 2px 0;
+    }
+
+    .days {
+        gap: 1px;
+    }
+
+    .day {
+        min-height: 26px;
+        min-width: 26px;
+        font-size: 0.65rem;
+        border-width: 0.5px;
+    }
+
+    .day.event-day::after {
+        width: 2px;
+        height: 2px;
+        bottom: 0px;
+    }
+
+    .calendar-legend {
+        padding: 0.6rem;
+    }
+
+    .legend-item {
+        font-size: 0.65rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .legend-color {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 360px) {
+    .calendar {
+        padding: 0.4rem;
+    }
+
+    .calendar-header {
+        gap: 0.25rem;
+    }
+
+    .calendar-header button {
+        padding: 2px 4px;
+        min-width: 22px;
+        height: 22px;
+    }
+
+    .day {
+        min-height: 24px;
+        min-width: 24px;
+        font-size: 0.6rem;
+    }
+
+    .weekday {
+        font-size: 0.55rem;
+        padding: 2px 0;
+    }
+}
+
+/* ============================================
+   ANIMATION & TRANSITIONS
+   ============================================ */
+
+.day {
+    transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.calendar-header button {
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+.day:focus,
+.calendar-header button:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 1px;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .calendar-section {
+        break-inside: avoid;
+    }
+
+    .calendar {
+        box-shadow: none;
+        border: 1px solid #999;
+    }
+
+    .calendar-header button {
+        display: none;
+    }
+}
